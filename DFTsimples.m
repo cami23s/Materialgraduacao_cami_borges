@@ -1,6 +1,6 @@
-#Autor: Cami Borges Sena
-#Data de modificação: 02 de julho de 2023
-#Codigo para DFT simples
+## Autor: Cami Borges Sena
+## Data de modificação: 02 de julho de 2023
+## Codigo para DFT simples em Octave
 
 f = zeros(30,30);
 f(5:24,13:17)=1;
