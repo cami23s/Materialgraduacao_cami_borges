@@ -1,0 +1,34 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def campo_eletrico(q, epsilon_0, R, theta):
+    coeficiente = 0.0975 / (1 - 0.9025 * np.sin(theta)**2)**(3/2)
+    E = abs(q) / (4 * np.pi * epsilon_0 * R**2) * coeficiente
+    return E
+
+# Parâmetros iniciais
+q = 1.0  # Carga 
+epsilon_0 = 8.85e-12  # Permissividade do vácuo
+R = 1.0  # Raio
+
+# Valores de theta entre 0 e pi/2
+theta_valores = np.linspace(0, np.pi/2, 100)
+
+# Campo elétrico para cada valor de theta
+campo_eletrico_valores = [campo_eletrico(q, epsilon_0, R, theta) for theta in theta_valores]
+
+# Define o tamanho da figura
+#plt.figure(figsize=(9, 6))
+
+# Grafico
+plt.plot(theta_valores, campo_eletrico_valores)
+plt.xlabel('Theta (radianos)')
+plt.ylabel('Campo Elétrico (E)')
+plt.title('Campo Elétrico em função de Theta')
+plt.grid(True)
+
+# Ajusta os limites dos eixos x e y para melhor visualização
+plt.xlim(0, np.pi/2)
+plt.ylim(0, max(campo_eletrico_valores)*1.2)  # Ajuste conforme necessário
+
+plt.show()
